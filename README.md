@@ -8,7 +8,7 @@ Install:
 1. run `yarn` or `npm install`
 2. Install Expo using command npm i exp -g
 3. Run `npm start`
-4. Run `exp io`s for iOS on simulator or `exp android` from Android devices
+4. Run `exp ios` for iOS on simulator or `exp android` from Android devices
 
 # Stack Used
 
