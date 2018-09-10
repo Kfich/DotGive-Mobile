@@ -48,6 +48,9 @@ export const fontFamily = {
     segoeUi: 'segoe-ui',
 };
 
+export const baseFont = 'Avenir';
+
+
 export const grid = {
     COLUMN: 24,
     ROW: 24

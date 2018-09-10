@@ -4,6 +4,31 @@ import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Ic
 
 
 export default class ImageCell extends Component {
+
+  constructor (props) {
+    super(props);
+    this.state = {
+      title: props.title,
+      titleTextColor: props.titleTextColor,
+      titleFontSize: props.titleFontSize,
+      subTitle: props.subTitle,
+      subTitleTextColor: props.subTitleTextColor,
+      subTitleFontSize: props.subTitleFontSize,
+      message: props.message,
+      messageTextColor: props.messageTextColor,
+      messageFontSize: props.messageFontSize,
+      isError: props.isError,
+      isEmpty: props.isEmpty,
+      cellImage: props.cellImage,
+      buttonAction: props.buttonAction,
+      backgroundColor: props.backgroundColor,
+      imageHeight: props.imageHeight,
+      imageWidth: props.imageWidth,
+      leftThumbnailImage: props.leftThumbnailImage,
+      rightThumbnailImage: props.rightThumbnailImage,
+    };
+  }
+
   render() {
     return (
       <Container>

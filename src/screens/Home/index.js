@@ -8,28 +8,30 @@ import TableViewCellBasic from '../../components/TableViewCells/TableViewCellBas
 import ImageCell from '../../components/TableViewCells/ImageCell';
 import ProfileImageCell from '../../components/TableViewCells/ProfileImageCell';
 import CollectionViewCellBasic from '../../components/CollectionViewCells/CollectionViewCellBasic';
+import StoryCollectionViewCell from '../../components/CollectionViewCells/StoryCollectionViewCell';
 
 export class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Header',
+    title: 'Explore',
   };
 
   render() {
     return (
       <View style={{flex: 1}}>
-        <Text>this is a Home screen</Text>
-        <Button
-            title="Go to Details"
-            onPress={() => this.props.navigation.navigate(DETAILS_SCREEN)}
-        />
-        <CollectionViewCellBasic
+        {/*<CollectionViewCellBasic
               imageType={'LOGO'}
               imageHeight={100}
               imageWidth={100}
               title={'This is a collection cell'}
               messageTextColor={'black'}
               messageFontSize={'20'}
-              message={'Whats good nigga this is the proto'} />
+              message={'Whats good nigga this is the proto'} />*/}
+          <ProfileImageCell/>
+        {/*<Text>this is a Home screen</Text>
+        <Button
+            title="Go to Details"
+            onPress={() => this.props.navigation.navigate(DETAILS_SCREEN)}
+        />*/}
       </View>
 
     );

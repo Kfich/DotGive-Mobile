@@ -8,17 +8,31 @@ export default class ProfileImageCell extends Component {
 
   constructor (props) {
     super(props);
+    this.state = {
+      title: props.title,
+      titleTextColor: props.titleTextColor,
+      titleFontSize: props.titleFontSize,
+      subTitle: props.subTitle,
+      subTitleTextColor: props.subTitleTextColor,
+      subTitleFontSize: props.subTitleFontSize,
+      message: props.message,
+      messageTextColor: props.messageTextColor,
+      messageFontSize: props.messageFontSize,
+      isError: props.isError,
+      isEmpty: props.isEmpty,
+      cellImage: props.cellImage,
+      buttonAction: props.buttonAction,
+      backgroundColor: props.backgroundColor,
+      imageHeight: props.imageHeight,
+      imageWidth: props.imageWidth,
+      leftThumbnailImage: props.leftThumbnailImage,
+      rightThumbnailImage: props.rightThumbnailImage,
+    };
   }
 
   render() {
     return (
       <Container>
-        <ImageOverlay
-          source={{ uri:'http://www.artmuseumgr.org/wp-content/uploads/2018/03/VisitHeader_960@2x.jpg' }}
-          height={150}
-          overlayAlpha={.65}
-          contentPosition="center">
-        </ImageOverlay>
         <Content>
           <Card style={{flex: 0}}>
             <CardItem>
@@ -32,13 +46,13 @@ export default class ProfileImageCell extends Component {
             </CardItem>
             <CardItem>
               <Body>
-                <View style={styles.avatarWrapper}>
-                    <Text style={styles.name}>$4,327.00</Text>
-                    <Text style={styles.subtitle}>Raised To Date</Text>
-                    <Button onPress={this.props.donate} block><Text> Donate </Text></Button>
-                </View>
+                <ImageOverlay
+                  source={{ uri:'http://www.artmuseumgr.org/wp-content/uploads/2018/03/VisitHeader_960@2x.jpg' }}
+                  height={400}
+                  overlayAlpha={.65}>
+                </ImageOverlay>
                 <CardItem header bordered>
-                  <Text>Mission</Text>
+                  <Text>toolbar here</Text>
                 </CardItem>
                 <Text>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -47,9 +61,12 @@ export default class ProfileImageCell extends Component {
             </CardItem>
             <CardItem>
               <Left>
-                <Button transparent textStyle={{color: '#87838B'}}>
-                  <Text>1,926 Donations</Text>
-                </Button>
+                <Text>See all 584 comments</Text>
+              </Left>
+            </CardItem>
+            <CardItem>
+              <Left>
+                <Text>6 MINUTES AGO</Text>
               </Left>
             </CardItem>
           </Card>
