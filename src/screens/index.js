@@ -1,4 +1,5 @@
 export * from './SignIn';
+export * from './ReviewPayment';
 export * from './Login';
 export * from './Home';
 export * from './Details';

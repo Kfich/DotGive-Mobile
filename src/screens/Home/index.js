@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Button, View, Text } from 'react-native';
+import { View, ScrollView } from 'react-native';
+import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
+
 
 import { DETAILS_SCREEN } from '../../constants/routes';
 
@@ -13,25 +15,29 @@ import StoryCollectionViewCell from '../../components/CollectionViewCells/StoryC
 export class HomeScreen extends Component {
   static navigationOptions = {
     title: 'Explore',
+    headerMode: 'none',
+    header: null
   };
+
+  showStoryProfile=()=>{
+    this.props.navigation.navigate(DETAILS_SCREEN)
+  }
+
 
   render() {
     return (
       <View style={{flex: 1}}>
-        {/*<CollectionViewCellBasic
-              imageType={'LOGO'}
-              imageHeight={100}
-              imageWidth={100}
-              title={'This is a collection cell'}
-              messageTextColor={'black'}
-              messageFontSize={'20'}
-              message={'Whats good nigga this is the proto'} />*/}
-          <ProfileImageCell/>
-        {/*<Text>this is a Home screen</Text>
-        <Button
-            title="Go to Details"
-            onPress={() => this.props.navigation.navigate(DETAILS_SCREEN)}
-        />*/}
+        <Header searchBar style={{backgroundColor: 'white', height: 75}}>
+          <Item style={{backgroundColor: 'white'}}>
+            <Input placeholder="Try NFLPA" style={{backgroundColor: '#f1f3f4'}}/>
+          </Item>
+        </Header>
+        <Button transparent onPress={this.showStoryProfile}>
+          <Text>show</Text>
+        </Button>
+        <ScrollView style={{backgroundColor: 'blue'}}>
+          <StoryCollectionViewCell selectPost={this.showStoryProfile.bind(this)}/>
+        </ScrollView>
       </View>
 
     );

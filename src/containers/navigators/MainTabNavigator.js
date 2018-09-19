@@ -17,12 +17,14 @@ import {
     HomeScreen,
     Screen1,
     Screen2,
+    ReviewPayment,
 } from '../../screens';
 
 const HomeStack = StackNavigator({
   [Routes.HOME_SCREEN]: {screen: HomeScreen},
-  [Routes.DETAILS_SCREEN]: {screen: DetailsScreen}
-},{ headerMode: `${Platform.OS === 'ios' ? 'float' : 'screen'}` });
+  [Routes.DETAILS_SCREEN]: {screen: DetailsScreen},
+  [Routes.REVIEW_PAYMENT]: {screen: ReviewPayment}
+});
 
 const SearchStack = StackNavigator({
   [Routes.SCREEN_1]: {screen: Screen1},

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, View } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
+import { Image, StyleSheet, View, TouchableHighlight } from 'react-native';
+import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Right, Body } from 'native-base';
 import ImageOverlay from 'react-native-image-overlay';
 
 
-export default class ProfileImageCell extends Component {
+export default class StoryCollectionViewCell extends Component {
 
   constructor (props) {
     super(props);
@@ -27,10 +27,75 @@ export default class ProfileImageCell extends Component {
       imageWidth: props.imageWidth,
       leftThumbnailImage: props.leftThumbnailImage,
       rightThumbnailImage: props.rightThumbnailImage,
+      selectPost: props.selectPost,
     };
   }
 
   render() {
+    return (
+      <TouchableHighlight
+        underlayColor={'green'}
+        key={'item.id'}
+        onPress={()=>this.props.selectPost}>
+        <Container>
+          <Content onPress={()=>{console.log("Hey!")}}>
+            <Card>
+              <CardItem>
+                <Left>
+                  <Thumbnail source={{uri: 'https://expo.advance.net/img/55a38cb43d/width960/c48_giants26.JPG'}} />
+                  <Body>
+                    <Text>Michael Thomas</Text>
+                    <Text note>for Boys & Girls Club of America</Text>
+                  </Body>
+                </Left>
+              </CardItem>
+              <CardItem cardBody style={{justifyContent: 'center'}}>
+                <Image source={{uri:'https://bgcblackhills.org/media/bgcblackhills360webcmscom/LD%20page%20header.jpg'}} style={{height: 400, width: null, flex: .95, borderRadius: 10, alignSelf: 'center'}}/>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Button transparent>
+                    <Text>A</Text>
+                  </Button>
+                  <Button transparent>
+                    <Text>B</Text>
+                  </Button>
+                  <Button transparent>
+                    <Text>C</Text>
+                  </Button>
+                </Left>
+                <Body>
+                </Body>
+                <Right>
+                  <Button transparent>
+                    <Text>B</Text>
+                  </Button>
+                </Right>
+              </CardItem>
+              <CardItem>
+                <Text style={{paddingHorizontal: 5}}>
+                  $62,271 raised of $100,000 goal
+                </Text>
+              </CardItem>
+              <CardItem>
+                <Left>
+                  <Text>Inaugural Michael Thomas Scholarship Camp Thank you to everyone who has put their bids in so far. Highest bid up to 1400. Will decide the winner this Saturday. All proceeds help put a graduating senior through college. @campmiket @Giants #Houston</Text>
+                </Left>
+              </CardItem>
+              <Button transparent info>
+                <Text>See all</Text>
+              </Button>
+              <Button transparent info>
+                <Text>6 MINUTES AGO</Text>
+              </Button>
+            </Card>
+          </Content>
+        </Container>
+      </TouchableHighlight>
+    );
+  }
+
+  renderPeter() {
     return (
       <Container>
         <Content>
