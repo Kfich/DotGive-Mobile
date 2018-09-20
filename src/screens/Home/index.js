@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
 
 
-import { DETAILS_SCREEN } from '../../constants/routes';
+import { REVIEW_PAYMENT } from '../../constants/routes';
 
 // Test
 import TableViewCellBasic from '../../components/TableViewCells/TableViewCellBasic';
@@ -20,7 +20,7 @@ export class HomeScreen extends Component {
   };
 
   showStoryProfile=()=>{
-    this.props.navigation.navigate(DETAILS_SCREEN)
+    this.props.navigation.navigate(REVIEW_PAYMENT)
   }
 
 
@@ -32,7 +32,7 @@ export class HomeScreen extends Component {
             <Input placeholder="Try NFLPA" style={{backgroundColor: '#f1f3f4'}}/>
           </Item>
         </Header>
-        <Button transparent onPress={this.showStoryProfile}>
+        <Button onPress={this.showStoryProfile}>
           <Text>show</Text>
         </Button>
         <ScrollView style={{backgroundColor: 'blue'}}>
