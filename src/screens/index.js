@@ -4,6 +4,8 @@ export * from './PaymentMethod';
 export * from './AddPayment';
 export * from './Login';
 export * from './Home';
+export * from './StoryProfile';
+export * from './UserProfile';
 export * from './Details';
 export * from './Screen1';
 export * from './Screen2';

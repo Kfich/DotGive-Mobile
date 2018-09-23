@@ -3,7 +3,7 @@ import { View, ScrollView } from 'react-native';
 import { Container, Header, Item, Input, Icon, Button, Text, Left, Right, Title } from 'native-base';
 import { baseFont } from '../../constants/theme';
 
-import { REVIEW_PAYMENT } from '../../constants/routes';
+import { STORY_PROFILE, REVIEW_PAYMENT } from '../../constants/routes';
 
 // Test
 import TableViewCellBasic from '../../components/TableViewCells/TableViewCellBasic';
@@ -18,6 +18,10 @@ export class HomeScreen extends Component {
   };
 
   showStoryProfile=()=>{
+    this.props.navigation.navigate(STORY_PROFILE)
+  }
+
+  showPay=()=>{
     this.props.navigation.navigate(REVIEW_PAYMENT)
   }
 
@@ -31,6 +35,9 @@ export class HomeScreen extends Component {
           </Left>
           <Right>
             <Button transparent onPress={this.showStoryProfile}>
+              <Text>show</Text>
+            </Button>
+            <Button transparent onPress={this.showPay}>
               <Text>show</Text>
             </Button>
           </Right>
