@@ -18,12 +18,16 @@ import {
     Screen1,
     Screen2,
     ReviewPayment,
+    PaymentMethod,
+    AddPayment
 } from '../../screens';
 
 const HomeStack = StackNavigator({
   [Routes.HOME_SCREEN]: {screen: HomeScreen},
   [Routes.DETAILS_SCREEN]: {screen: DetailsScreen},
-  [Routes.REVIEW_PAYMENT]: {screen: ReviewPayment}
+  [Routes.REVIEW_PAYMENT]: {screen: ReviewPayment},
+  [Routes.PAYMENT_METHOD]: {screen: PaymentMethod},
+  [Routes.ADD_PAYMENT]: {screen: AddPayment}
 });
 
 const SearchStack = StackNavigator({

@@ -6,5 +6,7 @@ export const LOG_IN_SCREEN = 'LoginScreen';
 export const HOME_SCREEN = 'Home/HomeScreen';
 export const DETAILS_SCREEN = 'Home/DetailsScreen';
 export const REVIEW_PAYMENT = 'ReviewPayment';
+export const ADD_PAYMENT = 'AddPayment';
+export const PAYMENT_METHOD = 'PaymentMethod';
 export const SCREEN_1 = 'Settings/Screen1';
 export const SCREEN_2 = 'Settings/Screen2';

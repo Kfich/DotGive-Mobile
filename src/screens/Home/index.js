@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView } from 'react-native';
-import { Container, Header, Item, Input, Icon, Button, Text } from 'native-base';
-
+import { Container, Header, Item, Input, Icon, Button, Text, Left, Right, Title } from 'native-base';
+import { baseFont } from '../../constants/theme';
 
 import { REVIEW_PAYMENT } from '../../constants/routes';
 
@@ -14,8 +14,6 @@ import StoryCollectionViewCell from '../../components/CollectionViewCells/StoryC
 
 export class HomeScreen extends Component {
   static navigationOptions = {
-    title: 'Explore',
-    headerMode: 'none',
     header: null
   };
 
@@ -27,15 +25,17 @@ export class HomeScreen extends Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <Header searchBar style={{backgroundColor: 'white', height: 75}}>
-          <Item style={{backgroundColor: 'white'}}>
-            <Input placeholder="Try NFLPA" style={{backgroundColor: '#f1f3f4'}}/>
-          </Item>
+        <Header style={{backgroundColor: 'white', height: 100}}>
+          <Left>
+            <Title style={{fontFamily: baseFont, fontSize: 30}}>Explore</Title>
+          </Left>
+          <Right>
+            <Button transparent onPress={this.showStoryProfile}>
+              <Text>show</Text>
+            </Button>
+          </Right>
         </Header>
-        <Button onPress={this.showStoryProfile}>
-          <Text>show</Text>
-        </Button>
-        <ScrollView style={{backgroundColor: 'blue'}}>
+        <ScrollView style={{backgroundColor: 'white'}}>
           <StoryCollectionViewCell selectPost={this.showStoryProfile.bind(this)}/>
         </ScrollView>
       </View>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { View, Image, InputAccessoryView } from 'react-native';
-import { HOME_SCREEN } from '../../constants/routes';
+import { PAYMENT_METHOD } from '../../constants/routes';
 import { baseFont } from '../../constants/theme';
-import { logo } from '../../images/give-logo.png';
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { Cell, Section, TableView } from 'react-native-tableview-simple';
+import { Cell } from 'react-native-tableview-simple';
+import icn_boysngirls from '../../images/icn_boysngirls.png';
+import icn_amex from '../../images/icn_amex.png';
 import { Content, Form, Item, CardItem, Input, Label, Header, Left, Body, Segment, Right, Title, Button, Text } from 'native-base';
 
 
@@ -13,6 +14,11 @@ export class ReviewPayment extends Component {
   static navigationOptions = {
     header: null
   };
+
+  showPaymentMethod=()=>{
+    this.props.navigation.navigate(PAYMENT_METHOD)
+  }
+
 
   render() {
     return(
@@ -38,9 +44,10 @@ export class ReviewPayment extends Component {
             <Content style={{backgroundColor: 'white'}}>
               <CardItem>
                 <Text style={{fontFamily: baseFont, fontSize: 16, color: 'black', flex: 1}}>Inaugural Michael Thomas Scholarship Camp by Michael Thomas</Text>
-                <Button>
-                  <Text>icn</Text>
-                </Button>
+                <Image
+                  source={icn_boysngirls}
+                  resizeMode={'contain'}
+                />
               </CardItem>
               <CardItem>
                 <Text style={{fontFamily: baseFont, fontSize: 16, color: 'black'}}>In support of Boys and Girls Clubs of America</Text>
@@ -52,28 +59,17 @@ export class ReviewPayment extends Component {
                 backgroundColor={"white"}
                 title="American Express 1008"
                 titleTextColor={'black'}
-                onPress={this.showSettings}
+                onPress={this.showPaymentMethod}
+                image={
+                  <Image
+                    source={icn_amex}
+                    resizeMode={'contain'}
+                  />
+                }
               />
               <View style={{height: 10, backgroundColor: 'white'}}/>
               <View style={{height: 1, backgroundColor: 'gray', marginRight: 15, marginLeft: 15}}/>
               <View style={{height: 10, backgroundColor: 'white'}}/>
-              {/*<CardItem>
-                <Segment style={{height: 100}}>
-                  <Button first>
-                    <Text>Puppies</Text>
-                  </Button>
-                  <Button>
-                    <Text>Kittens</Text>
-                  </Button>
-                  <Button last active>
-                    <Text>Cubs</Text>
-                  </Button>
-                </Segment>
-                <Button style={{marginLeft: 8, marginTop: 3, marginBottom: 3}}>
-                  <Text>Custom</Text>
-                </Button>
-              </CardItem>*/}
-
                 <CardItem>
                   <Button bordered dark style={{marginTop: 3, marginBottom: 3, marginRight: 3}}>
                     <Text>$1</Text>
@@ -100,7 +96,7 @@ export class ReviewPayment extends Component {
                   </Left>
                   <Body></Body>
                   <Right>
-                    <Text>{"$10.00"}</Text>
+                    <Text>{"$15.00"}</Text>
                   </Right>
                 </CardItem>
                 <CardItem>
@@ -114,12 +110,21 @@ export class ReviewPayment extends Component {
                 </CardItem>
               <View style={{height: 10, backgroundColor: 'white'}}/>
               <View style={{height: 1, backgroundColor: 'gray', marginRight: 15, marginLeft: 15}}/>
+              <CardItem>
+                <Left>
+                  <Text>{'Total (USD)'}</Text>
+                </Left>
+                <Body></Body>
+                <Right>
+                  <Text>{"$15.59"}</Text>
+                </Right>
+              </CardItem>
             </Content>
           </Row>
           <Row size={.5}>
             <Content style={{backgroundColor: 'white'}}>
               <Button block style={{margin: 15}}>
-                <Text>Confirm donation • $10.59</Text>
+                <Text>Confirm donation • $15.59</Text>
               </Button>
             </Content>
           </Row>

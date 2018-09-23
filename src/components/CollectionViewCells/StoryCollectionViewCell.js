@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Image, StyleSheet, View, TouchableHighlight } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Right, Body } from 'native-base';
 import ImageOverlay from 'react-native-image-overlay';
+import { baseFont } from '../../constants/theme';
+import icn_share from '../../images/icn_share.png';
+import icn_give from '../../images/icn_give.png';
+import icn_like_empty from '../../images/icn_like_empty.png';
+import icn_like_full from '../../images/icn_like_full.png';
+import icn_comment from '../../images/icn_comment.png';
+import icn_comment_full from '../../images/icn_comment_full.png';
 
 
 export default class StoryCollectionViewCell extends Component {
@@ -44,8 +51,8 @@ export default class StoryCollectionViewCell extends Component {
                 <Left>
                   <Thumbnail source={{uri: 'https://expo.advance.net/img/55a38cb43d/width960/c48_giants26.JPG'}} />
                   <Body>
-                    <Text>Michael Thomas</Text>
-                    <Text note>for Boys & Girls Club of America</Text>
+                    <Text style={{fontFamily: baseFont}}>Michael Thomas</Text>
+                    <Text note style={{fontFamily: baseFont}}>for Boys & Girls Club of America</Text>
                   </Body>
                 </Left>
               </CardItem>
@@ -55,38 +62,51 @@ export default class StoryCollectionViewCell extends Component {
               <CardItem>
                 <Left>
                   <Button transparent>
-                    <Text>A</Text>
+                    <Image
+                      source={icn_like_full}
+                      resizeMode={'contain'}
+                    />
                   </Button>
                   <Button transparent>
-                    <Text>B</Text>
+                  <Image
+                    source={icn_comment}
+                    resizeMode={'contain'}
+                  />
                   </Button>
                   <Button transparent>
-                    <Text>C</Text>
+                  <Image
+                    source={icn_share}
+                    resizeMode={'contain'}
+                  />
                   </Button>
                 </Left>
                 <Body>
                 </Body>
                 <Right>
                   <Button transparent>
-                    <Text>B</Text>
+                    <Image
+                      source={icn_give}
+                      resizeMode={'contain'}
+                    />
                   </Button>
                 </Right>
               </CardItem>
-              <CardItem>
-                <Text style={{paddingHorizontal: 5}}>
+              <CardItem  style={{height: 10}}>
+                <Text style={{paddingHorizontal: 8, fontFamily: baseFont}}>
                   $62,271 raised of $100,000 goal
                 </Text>
               </CardItem>
               <CardItem>
                 <Left>
-                  <Text>Inaugural Michael Thomas Scholarship Camp Thank you to everyone who has put their bids in so far. Highest bid up to 1400. Will decide the winner this Saturday. All proceeds help put a graduating senior through college. @campmiket @Giants #Houston</Text>
+                  <Text style={{fontFamily: baseFont}}>Inaugural Michael Thomas Scholarship Camp Thank you to everyone who has put their bids in so far. Highest bid up to 1400. Will decide the winner this Saturday. All proceeds help put a graduating senior through college. @campmiket @Giants #Houston</Text>
                 </Left>
               </CardItem>
-              <Button transparent info>
-                <Text>See all</Text>
+              <Button transparent info style={{height: 20}}>
+                <Text style={{paddingLeft: 25, color: 'gray', fontFamily: baseFont, fontSize: 16}}>View all 548 comments</Text>
               </Button>
-              <Button transparent info>
-                <Text>6 MINUTES AGO</Text>
+              <View style={{height: 20, backgroundColor: 'white'}}/>
+              <Button transparent info style={{height: 20}}>
+                <Text style={{paddingLeft: 25, color: 'gray', fontFamily: baseFont, fontSize: 16}}>6 MINUTES AGO</Text>
               </Button>
             </Card>
           </Content>
