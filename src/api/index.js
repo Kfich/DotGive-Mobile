@@ -1,3 +1,0 @@
-/**
- * Definitions for api calls.
- */
