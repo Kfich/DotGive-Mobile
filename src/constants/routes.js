@@ -8,6 +8,7 @@ export const STORY_PROFILE = 'StoryProfile';
 export const DETAILS_SCREEN = 'Home/DetailsScreen';
 export const REVIEW_PAYMENT = 'ReviewPayment';
 export const ADD_PAYMENT = 'AddPayment';
+export const CONFIRM_PAYMENT = 'ConfirmPayment';
 export const PAYMENT_METHOD = 'PaymentMethod';
 export const USER_PROFILE = 'UserProfile';
 export const SCREEN_1 = 'Settings/Screen1';

@@ -39,82 +39,83 @@ export default class StoryCollectionViewCell extends Component {
   }
 
   render() {
-    return (
-      <TouchableHighlight
-        underlayColor={'green'}
-        key={'item.id'}
-        onPress={()=>this.props.selectPost}>
-        <Container>
-          <Content onPress={()=>{console.log("Hey!")}}>
-            <Card>
-              <CardItem>
-                <Left>
-                  <Thumbnail source={{uri: 'https://expo.advance.net/img/55a38cb43d/width960/c48_giants26.JPG'}} />
+      return (
+        <TouchableHighlight
+          underlayColor={'green'}
+          key={'item.id'}
+          onPress={()=>this.props.selectPost}>
+          <Container>
+            <Content onPress={()=>{console.log("Hey!")}}>
+              <Card>
+                <CardItem>
+                  <Left>
+                    <Thumbnail source={{uri: 'https://expo.advance.net/img/55a38cb43d/width960/c48_giants26.JPG'}} />
+                    <Body>
+                      <Text style={{fontFamily: baseFont}}>Michael Thomas</Text>
+                      <Text note style={{fontFamily: baseFont}}>for Boys & Girls Club of America</Text>
+                    </Body>
+                  </Left>
+                </CardItem>
+                <CardItem cardBody style={{justifyContent: 'center'}}>
+                  <Image source={{uri:'https://bgcblackhills.org/media/bgcblackhills360webcmscom/LD%20page%20header.jpg'}} style={{height: 400, width: null, flex: .95, borderRadius: 10, alignSelf: 'center'}}/>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                    <Button transparent>
+                      <Image
+                        source={icn_like_full}
+                        resizeMode={'contain'}
+                      />
+                    </Button>
+                    <Button transparent>
+                    <Image
+                      source={icn_comment}
+                      resizeMode={'contain'}
+                    />
+                    </Button>
+                    <Button transparent>
+                    <Image
+                      source={icn_share}
+                      resizeMode={'contain'}
+                    />
+                    </Button>
+                  </Left>
                   <Body>
-                    <Text style={{fontFamily: baseFont}}>Michael Thomas</Text>
-                    <Text note style={{fontFamily: baseFont}}>for Boys & Girls Club of America</Text>
                   </Body>
-                </Left>
-              </CardItem>
-              <CardItem cardBody style={{justifyContent: 'center'}}>
-                <Image source={{uri:'https://bgcblackhills.org/media/bgcblackhills360webcmscom/LD%20page%20header.jpg'}} style={{height: 400, width: null, flex: .95, borderRadius: 10, alignSelf: 'center'}}/>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Button transparent>
-                    <Image
-                      source={icn_like_full}
-                      resizeMode={'contain'}
-                    />
-                  </Button>
-                  <Button transparent>
-                  <Image
-                    source={icn_comment}
-                    resizeMode={'contain'}
-                  />
-                  </Button>
-                  <Button transparent>
-                  <Image
-                    source={icn_share}
-                    resizeMode={'contain'}
-                  />
-                  </Button>
-                </Left>
-                <Body>
-                </Body>
-                <Right>
-                  <Button transparent>
-                    <Image
-                      source={icn_give}
-                      resizeMode={'contain'}
-                    />
-                  </Button>
-                </Right>
-              </CardItem>
-              <CardItem  style={{height: 10}}>
-                <Text style={{paddingHorizontal: 8, fontFamily: baseFont}}>
-                  $62,271 raised of $100,000 goal
-                </Text>
-              </CardItem>
-              <CardItem>
-                <Left>
-                  <Text style={{fontFamily: baseFont}}>Inaugural Michael Thomas Scholarship Camp Thank you to everyone who has put their bids in so far. Highest bid up to 1400. Will decide the winner this Saturday. All proceeds help put a graduating senior through college. @campmiket @Giants #Houston</Text>
-                </Left>
-              </CardItem>
-              <Button transparent info style={{height: 20}}>
-                <Text style={{paddingLeft: 25, color: 'gray', fontFamily: baseFont, fontSize: 16}}>View all 548 comments</Text>
-              </Button>
-              <View style={{height: 20, backgroundColor: 'white'}}/>
-              <Button transparent info style={{height: 20}}>
-                <Text style={{paddingLeft: 25, color: 'gray', fontFamily: baseFont, fontSize: 16}}>6 MINUTES AGO</Text>
-              </Button>
-            </Card>
-          </Content>
-        </Container>
-      </TouchableHighlight>
-    );
-  }
+                  <Right>
+                    <Button transparent>
+                      <Image
+                        source={icn_give}
+                        resizeMode={'contain'}
+                      />
+                    </Button>
+                  </Right>
+                </CardItem>
+                <CardItem  style={{height: 10}}>
+                  <Text style={{paddingHorizontal: 8, fontFamily: baseFont}}>
+                    $62,271 raised of $100,000 goal
+                  </Text>
+                </CardItem>
+                <CardItem>
+                  <Left>
+                    <Text style={{fontFamily: baseFont}}>Inaugural Michael Thomas Scholarship Camp Thank you to everyone who has put their bids in so far. Highest bid up to 1400. Will decide the winner this Saturday. All proceeds help put a graduating senior through college. @campmiket @Giants #Houston</Text>
+                  </Left>
+                </CardItem>
+                <Button transparent info style={{height: 20}}>
+                  <Text style={{paddingLeft: 25, color: 'gray', fontFamily: baseFont, fontSize: 16}}>View all 548 comments</Text>
+                </Button>
+                <View style={{height: 20, backgroundColor: 'white'}}/>
+                <Button transparent info style={{height: 20}}>
+                  <Text style={{paddingLeft: 25, color: 'gray', fontFamily: baseFont, fontSize: 16}}>6 MINUTES AGO</Text>
+                </Button>
+              </Card>
+            </Content>
+          </Container>
+        </TouchableHighlight>
+      );
+    }
 
+    
   renderPeter() {
     return (
       <Container>

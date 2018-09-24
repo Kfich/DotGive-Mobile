@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, InputAccessoryView } from 'react-native';
-import { PAYMENT_METHOD } from '../../constants/routes';
+import { PAYMENT_METHOD, CONFIRM_PAYMENT } from '../../constants/routes';
 import { baseFont } from '../../constants/theme';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Cell } from 'react-native-tableview-simple';
@@ -12,11 +12,16 @@ import { Content, Form, Item, CardItem, Input, Label, Header, Left, Body, Segmen
 export class ReviewPayment extends Component {
 
   static navigationOptions = {
-    header: null
+    header: null,
+    tabBarVisible: false
   };
 
   showPaymentMethod=()=>{
     this.props.navigation.navigate(PAYMENT_METHOD)
+  }
+
+  showConfirm=()=>{
+    this.props.navigation.navigate(CONFIRM_PAYMENT)
   }
 
 
@@ -123,7 +128,7 @@ export class ReviewPayment extends Component {
           </Row>
           <Row size={.5}>
             <Content style={{backgroundColor: 'white'}}>
-              <Button block style={{margin: 15}}>
+              <Button block  onPress={this.showConfirm}  style={{margin: 15}}>
                 <Text>Confirm donation • $15.59</Text>
               </Button>
             </Content>

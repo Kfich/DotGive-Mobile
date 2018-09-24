@@ -14,6 +14,7 @@ export class PaymentMethod extends Component {
 
   static navigationOptions = {
     header: null,
+    tabBarVisible: false
   };
 
   showAddPaymentMethod=()=>{

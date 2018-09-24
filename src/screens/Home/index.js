@@ -44,6 +44,8 @@ export class HomeScreen extends Component {
         </Header>
         <ScrollView style={{backgroundColor: 'white'}}>
           <StoryCollectionViewCell selectPost={this.showStoryProfile.bind(this)}/>
+          <StoryCollectionViewCell selectPost={this.showStoryProfile.bind(this)}/>
+          <StoryCollectionViewCell selectPost={this.showStoryProfile.bind(this)}/>
         </ScrollView>
       </View>
 

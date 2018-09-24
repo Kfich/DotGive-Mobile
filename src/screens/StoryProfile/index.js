@@ -10,32 +10,47 @@ import { Content, Container, Card, Item, CardItem, Input, Label, Header, Left, T
 import icn_tags from '../../images/icn_tags.png';
 import icn_location from '../../images/icn_location.png';
 import icn_target from '../../images/icn_target.png';
+import icn_left_gray from '../../images/icn_left_gray.png';
+
+import { REVIEW_PAYMENT } from '../../constants/routes';
+
+var test = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam'
+var test2 = 'The boys and girls clubs of america do a ton of lorem ipsum dolor sit atem, consectetur adispisicng elit'
+var test3 = 'Micael Thomas is one of them boys whos out here but in like one of them huge ways. Lorem ipsum that to the bank dolor sit atem, consectetur con carnes Micael Thomas is one of them boys whos out here but in like one of them huge ways. Lorem ipsum that to the bank dolor sit atem, consectetur con carnes'
 
 
 export class StoryProfile extends Component {
 
   static navigationOptions = {
     header: null,
+    tabBarVisible: false
   };
+
+  showPay=()=>{
+    this.props.navigation.navigate(REVIEW_PAYMENT)
+  }
+
 
   render() {
     return(
       <View style={{ flex: 1}}>
-        <Header style={{backgroundColor: 'black'}}>
+        <Header style={{backgroundColor: 'black', borderColor: 'black'}}>
           <Left>
             <Button transparent onPress={() => console.log("Logging!!")}>
-              <Text style={{color: 'white'}}>Done</Text>
+              <Image
+                source={icn_left_gray}
+                resizeMode={'contain'}
+              />
             </Button>
           </Left>
           <Right>
           </Right>
         </Header>
         <Grid>
-          <ScrollView>
-          <Row size={3}>
-            <Container style={{backgroundColor: 'black'}}>
+        <Row size={9}>
+          <ScrollView style={{backgroundColor: 'black'}}>
               <Content onPress={()=>{console.log("Hey!")}}>
-                <Card style={{backgroundColor: 'black'}}>
+                <Card style={{backgroundColor: 'black', borderColor: 'black'}}>
                   <CardItem cardBody>
                     <ImageOverlay source={{uri:'https://bgcblackhills.org/media/bgcblackhills360webcmscom/LD%20page%20header.jpg'}} overlayAlpha={.45} style={{height: 400, width: null, flex: 1 }}>
                       <View style={{flex: 0.9, backgroundColor: 'red'}}></View>
@@ -98,13 +113,19 @@ export class StoryProfile extends Component {
                       }
                     />
                 </Card>
-                <CommentCell />
-                <CommentCell />
-                <CommentCell />
+                <RightThumbnailCell title={'About the fund'} message={test}/>
+                <RightThumbnailCell title={'About the charity'} message={test2}/>
+                <RightThumbnailCell title={'About Michael'} message={test3}/>
               </Content>
-            </Container>
-          </Row>
           </ScrollView>
+            </Row>
+            <Row size={1} style={{backgroundColor: 'white', justifyContent: 'center',  padding: 6}}>
+              <Col style={{backgroundColor: 'white', justifyContent: 'center',  padding: 6}}>
+                <Button block onPress={this.showPay}>
+                  <Text style={{color: 'white', fontSize: 16, fontFamily: baseFont}}>Donate now</Text>
+                </Button>
+              </Col>
+            </Row>
         </Grid>
       </View>
     );

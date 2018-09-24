@@ -22,6 +22,7 @@ import {
     AddPayment,
     StoryProfile,
     UserProfile,
+    ConfirmPayment
 } from '../../screens';
 
 const HomeStack = StackNavigator({
@@ -31,6 +32,7 @@ const HomeStack = StackNavigator({
   [Routes.PAYMENT_METHOD]: {screen: PaymentMethod},
   [Routes.ADD_PAYMENT]: {screen: AddPayment},
   [Routes.STORY_PROFILE]: {screen: StoryProfile},
+  [Routes.CONFIRM_PAYMENT]: {screen: ConfirmPayment},
 
 });
 

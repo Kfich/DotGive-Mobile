@@ -2,6 +2,7 @@ export * from './SignIn';
 export * from './ReviewPayment';
 export * from './PaymentMethod';
 export * from './AddPayment';
+export * from './ConfirmPayment';
 export * from './Login';
 export * from './Home';
 export * from './StoryProfile';
