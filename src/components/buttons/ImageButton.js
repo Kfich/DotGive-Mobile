@@ -57,20 +57,28 @@ export default class ImageButton extends Component {
 
     let source = '';
 
-    if (this.state.type === 'LOGO') {
+    if (this.props.type === 'LOGO') {
       source = require('../../../assets/images/robot-dev.png');
+    }else if (this.props.type === 'HEART-LARGE') {
+      source = require('../../images/icn_heart_large.png');
+    }else if (this.props.type === 'OVAL') {
+      source = require('../../images/icn_oval_empty.png');
+    }else if (this.props.type === 'OVAL-FULL') {
+      source = require('../../images/icn_oval_full.png');
+    }else if (this.props.type === 'SEARCH') {
+      source = require('../../images/icn_search.png');
     }
 
     return(
       <TouchableOpacity onPress={this.state.buttonAction}>
         <View style={{
           alignItems: 'center',
-          height: this.state.height,
-          width: this.state.width,
-          backgroundColor: this.state.backgroundColor }}>
+          height: this.props.height,
+          width: this.props.width,
+          backgroundColor: this.props.backgroundColor }}>
           <Image
             source={source}
-            style={{ height: this.state.height, width: this.state.width }}
+            style={{ height: this.props.height, width: this.props.width }}
             resizeMode={'contain'}
           />
         </View>

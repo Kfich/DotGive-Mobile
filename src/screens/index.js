@@ -7,6 +7,7 @@ export * from './Login';
 export * from './Home';
 export * from './StoryProfile';
 export * from './UserProfile';
+export * from './Following';
 export * from './Settings';
 export * from './Details';
 export * from './Screen1';

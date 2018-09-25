@@ -11,12 +11,7 @@ export class Settings extends Component {
   static navigationOptions = {
     header: null,
   };
-
-  showHome=()=>{
-    this.props.navigation.navigate(HOME_SCREEN)
-  }
-
-
+  
   render() {
     return(
       <View style={{ flex: 1}}>

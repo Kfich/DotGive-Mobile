@@ -23,7 +23,8 @@ import {
     StoryProfile,
     UserProfile,
     ConfirmPayment,
-    Settings
+    Settings,
+    Following
 } from '../../screens';
 
 const HomeStack = StackNavigator({
@@ -37,9 +38,8 @@ const HomeStack = StackNavigator({
 
 });
 
-const SearchStack = StackNavigator({
-  [Routes.SCREEN_1]: {screen: Screen1},
-  [Routes.SCREEN_2]: {screen: Screen2},
+const FollowingStack = StackNavigator({
+  [Routes.FOLLOWING]: {screen: Following},
 },{ headerMode: `${Platform.OS === 'ios' ? 'float' : 'screen'}` });
 
 const CreateStack = StackNavigator({
@@ -59,6 +59,7 @@ const SettingsStack = StackNavigator({
 
 export const MainTabNavigator = TabNavigator({
     Home: { screen: HomeStack },
+    Following: {screen: FollowingStack},
     Create: {screen: CreateStack},
     Profile: { screen: ProfileStack },
     Settings: {screen: SettingsStack}

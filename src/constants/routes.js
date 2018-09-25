@@ -11,6 +11,7 @@ export const ADD_PAYMENT = 'AddPayment';
 export const CONFIRM_PAYMENT = 'ConfirmPayment';
 export const PAYMENT_METHOD = 'PaymentMethod';
 export const USER_PROFILE = 'UserProfile';
+export const FOLLOWING = 'Following';
 export const SETTINGS = 'Settings';
 export const SCREEN_1 = 'Settings/Screen1';
 export const SCREEN_2 = 'Settings/Screen2';

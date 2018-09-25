@@ -5,3 +5,4 @@ export * from './TableViewCells/TableViewCellBasic';
 export * from './TableViewCells/ImageCell';
 export * from './TableViewCells/ProfileImageCell';
 export * from './LoadingIndicator';
+export * from './Alert';
