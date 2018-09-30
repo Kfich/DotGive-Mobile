@@ -9,6 +9,7 @@ import icn_amex from '../../images/icn_amex.png';
 import icn_credit_card from '../../images/icn_credit_card.png';
 import icn_apple_pay from '../../images/icn_apple_pay.png';
 import icn_add_card from '../../images/icn_add_card.png';
+import icn_left_black from '../../images/icn_left_black.png';
 
 export class PaymentMethod extends Component {
 
@@ -21,14 +22,21 @@ export class PaymentMethod extends Component {
     this.props.navigation.navigate(ADD_PAYMENT);
   }
 
+  goBack=()=>{
+    this.props.navigation.goBack();
+  }
+
   render() {
     return(
       <View style={{ flex: 1}}>
         <Grid>
           <Header style={{backgroundColor: 'white'}}>
             <Left>
-              <Button transparent onPress={() => console.log("Logging!!")}>
-                <Text>Done</Text>
+              <Button transparent onPress={this.goBack}>
+                <Image
+                  source={icn_left_black}
+                  resizeMode={'contain'}
+                />
               </Button>
             </Left>
             <Right>

@@ -31,13 +31,16 @@ export class StoryProfile extends Component {
     this.props.navigation.navigate(REVIEW_PAYMENT)
   }
 
+  goBack=()=>{
+    this.props.navigation.goBack();
+  }
 
   render() {
     return(
       <View style={{ flex: 1}}>
         <Header style={{backgroundColor: 'black', borderColor: 'black'}}>
           <Left>
-            <Button transparent onPress={() => console.log("Logging!!")}>
+            <Button transparent onPress={this.goBack}>
               <Image
                 source={icn_left_gray}
                 resizeMode={'contain'}

@@ -3,7 +3,7 @@ import { WebView } from 'react-native';
 import { baseFont } from '../../constants/theme';
 import { StyleSheet, View,  } from 'react-native';
 import { Header, Left, Body, Right, Title, Button, Text } from 'native-base';
-
+import icn_left_black from '../../images/icn_left_black.png';
 
 
 const styles = StyleSheet.create({
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Webviewer extends Component {
+export default class PrivacyPolicy extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -21,20 +21,27 @@ export default class Webviewer extends Component {
     };
   }
   // Custom methods
-  _dismiss = () => {
+  goBack=()=>{
     this.props.navigation.goBack();
   }
+
 
   render () {
     return (
       <View style={styles.container}>
         <Header style={{backgroundColor: 'white', height: 100}}>
           <Left>
+            <Button transparent onPress={this.goBack}>
+              <Image
+                source={icn_left_black}
+                resizeMode={'contain'}
+              />
+            </Button>
             <Title style={{fontFamily: baseFont, fontSize: 30}}>Settings</Title>
           </Left>
         </Header>
         <WebView
-          source={{ uri: 'https://www.goblockparty.com/termsandconditions' }}
+          source={{ uri: 'https://www.google.com' }}
           style={{ marginTop: 20 }}
         />
       </View>

@@ -6,6 +6,7 @@ import { Col, Row, Grid } from "react-native-easy-grid";
 import { Cell } from 'react-native-tableview-simple';
 import icn_boysngirls from '../../images/icn_boysngirls.png';
 import icn_amex from '../../images/icn_amex.png';
+import icn_left_black from '../../images/icn_left_black.png';
 import { Content, Form, Item, CardItem, Input, Label, Header, Left, Body, Segment, Right, Title, Button, Text } from 'native-base';
 
 
@@ -24,6 +25,10 @@ export class ReviewPayment extends Component {
     this.props.navigation.navigate(CONFIRM_PAYMENT)
   }
 
+  goBack=()=>{
+    this.props.navigation.goBack();
+  }
+
 
   render() {
     return(
@@ -31,8 +36,11 @@ export class ReviewPayment extends Component {
         <Grid>
           <Header style={{backgroundColor: 'white'}}>
             <Left>
-              <Button transparent onPress={() => console.log("Logging!!")}>
-                <Text>Back</Text>
+              <Button transparent onPress={this.goBack}>
+                <Image
+                  source={icn_left_black}
+                  resizeMode={'contain'}
+                />
               </Button>
             </Left>
             <Right>

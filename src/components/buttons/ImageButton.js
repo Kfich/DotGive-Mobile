@@ -67,6 +67,8 @@ export default class ImageButton extends Component {
       source = require('../../images/icn_oval_full.png');
     }else if (this.props.type === 'SEARCH') {
       source = require('../../images/icn_search.png');
+    }else if (this.props.type === 'CARD-GRAY') {
+      source = require('../../images/icn_credit_card.png');
     }
 
     return(

@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { View, Image, InputAccessoryView } from 'react-native';
 import { baseFont } from '../../constants/theme';
+import ImageButton from '../../components/buttons/ImageButton';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Cell } from 'react-native-tableview-simple';
 import { Content, Form, Item, CardItem, Input, Label, Header, Left, Body, Segment, Right, Title, Button, Text } from 'native-base';
 import icn_credit_card from '../../images/icn_credit_card.png';
 import icn_apple_pay from '../../images/icn_apple_pay.png';
+import icn_left_black from '../../images/icn_left_black.png';
+
 
 export class AddPayment extends Component {
 
@@ -13,14 +16,22 @@ export class AddPayment extends Component {
     header: null,
   };
 
+  goBack=()=>{
+    this.props.navigation.goBack();
+  }
+
+
   render() {
     return(
       <View style={{ flex: 1}}>
         <Grid>
           <Header style={{backgroundColor: 'white'}}>
             <Left>
-              <Button transparent onPress={() => console.log("Logging!!")}>
-                <Text>Done</Text>
+              <Button transparent onPress={this.goBack}>
+                <Image
+                  source={icn_left_black}
+                  resizeMode={'contain'}
+                />
               </Button>
             </Left>
             <Right>
@@ -38,19 +49,13 @@ export class AddPayment extends Component {
               <CardItem>
                 <Text style={{fontFamily: baseFont, fontSize: 16, color: 'black', flex: 1}}>CARD NUMBER</Text>
               </CardItem>
-              <Cell
-                accessory='none'
-                backgroundColor={"white"}
-                title="0000 0000 0000 0000"
-                titleTextColor={'black'}
-                onPress={this.showSettings}
-                image={
-                  <Image
-                    source={icn_credit_card}
-                    resizeMode={'contain'}
-                  />
-                }
-              />
+              <CardItem style={{backgroundColor: 'white', height: 50}}>
+                <Left style={{backgroundColor: 'white', width: 25}}>
+                  <ImageButton type={'CARD-GRAY'} height={25} width={25} />
+                  <Input style={{fontFamily: baseFont, fontSize: 16, marginLeft: 12}} placeholder="0000 0000 0000 0000" />
+                </Left>
+              </CardItem>
+
               <View style={{height: 15, backgroundColor: 'white'}}/>
               <View style={{height: 1, backgroundColor: 'gray', marginRight: 15, marginLeft: 15}}/>
 
@@ -61,9 +66,9 @@ export class AddPayment extends Component {
                 <Text style={{fontFamily: baseFont, fontSize: 16, color: 'black', flex: 1}}>POSTAL CODE</Text>
               </CardItem>
               <CardItem>
-                <Text style={{fontFamily: baseFont, fontSize: 16, color: 'gray', flex: 1}}>MM/YY</Text>
-                <Text style={{fontFamily: baseFont, fontSize: 16, color: 'gray', flex: 1}}>123</Text>
-                <Text style={{fontFamily: baseFont, fontSize: 16, color: 'gray', flex: 1}}>12345</Text>
+                  <Input style={{fontFamily: baseFont, fontSize: 16}} placeholder="MM/YY" />
+                  <Input style={{fontFamily: baseFont, fontSize: 16}} placeholder="123" />
+                  <Input style={{fontFamily: baseFont, fontSize: 16}} placeholder="12345" />
               </CardItem>
             </Content>
           </Row>

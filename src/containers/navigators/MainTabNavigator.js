@@ -24,7 +24,10 @@ import {
     UserProfile,
     ConfirmPayment,
     Settings,
-    Following
+    Following,
+    CampaignSelection,
+    CreateFund,
+    PrivacyPolicy
 } from '../../screens';
 
 const HomeStack = StackNavigator({
@@ -43,8 +46,8 @@ const FollowingStack = StackNavigator({
 },{ headerMode: `${Platform.OS === 'ios' ? 'float' : 'screen'}` });
 
 const CreateStack = StackNavigator({
-  [Routes.SCREEN_1]: {screen: Screen1},
-  [Routes.SCREEN_2]: {screen: Screen2},
+  [Routes.CAMPAIGN_SELECTION]: {screen: CampaignSelection},
+  [Routes.CREATE_FUND]: {screen: CreateFund},
 },{ headerMode: `${Platform.OS === 'ios' ? 'float' : 'screen'}` });
 
 const ProfileStack = StackNavigator({
