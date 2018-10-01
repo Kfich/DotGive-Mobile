@@ -9,18 +9,36 @@ import { Content, Form, Item, Input, Label, Header, Left, Body, Right, Icon, Tit
 
 export class LoginScreen extends Component {
 
+  constructor (props) {
+    super(props);
+    this.state = {
+      username: '',
+      password: '',
+    };
+  }
+
+  test =()=>{
+    console.log("The state", this.state);
+  }
+
+  sign_in =()=>{
+    console.log("The state on signIn", this.state.username, this.state.password);
+  }
+
   render() {
     return(
       <View style={{ flex: 1}}>
         <Grid>
           <Header style={{backgroundColor: 'blue'}}>
             <Left>
-              <Button transparent light>
+              <Button onPress={this.test} transparent light>
                 <Text>Back</Text>
               </Button>
             </Left>
             <Right>
-              <Text style={{fontFamily: baseFont, color: 'white'}}>Forgot Password</Text>
+              <Button onPress={this.sign_in} transparent light>
+                <Text>Sign in</Text>
+              </Button>
             </Right>
           </Header>
 
@@ -37,11 +55,24 @@ export class LoginScreen extends Component {
               <Form>
                 <Item stackedLabel>
                   <Label style={{fontFamily: baseFont, fontSize: 16, color: 'white'}}>USERNAME</Label>
-                  <Input />
+                  <Input
+                    returnKeyType="next"
+                    clearButtonMode="always"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    value={this.state.username}
+                    onChangeText={(text) => this.setState({ username: text })}/>
                 </Item>
                 <Item stackedLabel>
                   <Label style={{fontFamily: baseFont, fontSize: 16, color: 'white'}}>PASSWORD</Label>
-                  <Input />
+                  <Input
+                    returnKeyType="next"
+                    clearButtonMode="always"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    secureTextEntry={true}
+                    value={this.state.password}
+                    onChangeText={(text) => this.setState({ password: text })} />
                 </Item>
                 <View style={{height: 1, backgroundColor: 'white'}}/>
               </Form>
