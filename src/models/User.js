@@ -5,13 +5,14 @@ export default class User {
   static currentUser = null;
   static userJSON = null;
 
+  /*
   var user_profile = {
     'about_me': '',
     'location': '',
     'timezone': '',
     'profile_photo_url': '',
     'profile_banner_url': '',
-  }
+  }*/
 
   constructor () {
     // this._id = '';
@@ -33,7 +34,7 @@ export default class User {
     this.updatedAt = '';
     this.version = '';
     this.account_type = '';
-    this.user_profile =
+    this.user_profile = {}
   }
 
   initWithParams (params) {

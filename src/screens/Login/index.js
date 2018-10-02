@@ -5,7 +5,10 @@ import { baseFont } from '../../constants/theme';
 import { logo } from '../../images/give-logo.png';
 import { Col, Row, Grid } from "react-native-easy-grid";
 import { Content, Form, Item, Input, Label, Header, Left, Body, Right, Icon, Title, Button, Text } from 'native-base';
-
+import Services from '../../api/Services';
+import User from '../../models/User';
+import {setCurrentUser} from '../../actions';
+import { connect, dispatch } from 'react-redux';
 
 export class LoginScreen extends Component {
 
@@ -15,14 +18,29 @@ export class LoginScreen extends Component {
       username: '',
       password: '',
     };
+
+    this.services = new Services();
+    //this.onLoginClick = this.onLoginClick.bind(this);
   }
 
   test =()=>{
     console.log("The state", this.state);
   }
 
+
   sign_in =()=>{
     console.log("The state on signIn", this.state.username, this.state.password);
+
+    // Init dict
+    const auth = {
+      email: this.state.username,
+      password: this.state.password
+    }
+
+    //User.currentUser = this.services.sendData('/authenticate', auth);
+    // Test
+    console.log("Page props \n", this.props);
+
   }
 
   render() {
@@ -84,4 +102,20 @@ export class LoginScreen extends Component {
   }
 }
 
-export default LoginScreen;
+const mapStateToProps = (state) => {
+  return {
+    currentUser: null,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  console.log("Mapping state to props ");
+
+  return {
+    onLogin: (props) => {
+      dispatch(setCurrentUser())
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(LoginScreen);

@@ -3,12 +3,14 @@ import { combineReducers } from 'redux';
 import {
     appLoading,
 } from './ui';
-import { 
+import {
     app,
     nav,
     auth,
+    user_reducer,
 } from './app';
-import { 
+
+import {
 } from './domain';
 
 
@@ -19,4 +21,7 @@ export default combineReducers({
     app,
     nav,
     auth,
+    user: combineReducers({
+      user_reducer,
+    }),
 });

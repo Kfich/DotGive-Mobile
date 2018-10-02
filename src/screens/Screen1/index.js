@@ -8,11 +8,20 @@ export class Screen1 extends Component {
   };
 
   render() {
+    const {value, onIcrement, onDecrement} = this.props
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>this is Screen 1</Text>
         <Button
             title="Go to Screen2"
+            onPress={() => this.props.navigation.navigate(SCREEN_2)}
+        />
+        <Button
+            title="Incrememnt"
+            onPress={() => this.props.navigation.navigate(SCREEN_2)}
+        />
+        <Button
+            title="Decrement"
             onPress={() => this.props.navigation.navigate(SCREEN_2)}
         />
       </View>
