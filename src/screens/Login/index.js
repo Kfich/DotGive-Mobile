@@ -10,12 +10,13 @@ import User from '../../models/User';
 import {setCurrentUser} from '../../actions';
 import { connect, dispatch } from 'react-redux';
 
-export class LoginScreen extends Component {
+
+class _LoginScreen extends Component {
 
   constructor (props) {
     super(props);
     this.state = {
-      username: '',
+      email: '',
       password: '',
     };
 
@@ -23,24 +24,15 @@ export class LoginScreen extends Component {
     //this.onLoginClick = this.onLoginClick.bind(this);
   }
 
-  test =()=>{
-    console.log("The state", this.state);
-  }
-
-
   sign_in =()=>{
-    console.log("The state on signIn", this.state.username, this.state.password);
 
     // Init dict
     const auth = {
-      email: this.state.username,
+      email: this.state.email,
       password: this.state.password
     }
 
-    //User.currentUser = this.services.sendData('/authenticate', auth);
-    // Test
-    console.log("Page props \n", this.props);
-
+    this.props.setCurrentUser(auth);
   }
 
   render() {
@@ -72,14 +64,14 @@ export class LoginScreen extends Component {
             <Content style={{backgroundColor: 'blue'}}>
               <Form>
                 <Item stackedLabel>
-                  <Label style={{fontFamily: baseFont, fontSize: 16, color: 'white'}}>USERNAME</Label>
+                  <Label style={{fontFamily: baseFont, fontSize: 16, color: 'white'}}>EMAIL</Label>
                   <Input
                     returnKeyType="next"
                     clearButtonMode="always"
                     autoCapitalize="none"
                     autoCorrect={false}
                     value={this.state.username}
-                    onChangeText={(text) => this.setState({ username: text })}/>
+                    onChangeText={(text) => this.setState({ email: text })}/>
                 </Item>
                 <Item stackedLabel>
                   <Label style={{fontFamily: baseFont, fontSize: 16, color: 'white'}}>PASSWORD</Label>
@@ -102,20 +94,10 @@ export class LoginScreen extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: null,
-  }
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    setCurrentUser: () => dispatch(setCurrentUser({email: 'stan@azula.co', password: 'azulaazula'})),
+});
 
-const mapDispatchToProps = (dispatch) => {
-  console.log("Mapping state to props ");
+export const LoginScreen = connect(null, mapDispatchToProps)(_LoginScreen);
 
-  return {
-    onLogin: (props) => {
-      dispatch(setCurrentUser())
-    }
-  }
-}
-
-export default connect(null, mapDispatchToProps)(LoginScreen);
+export default LoginScreen;

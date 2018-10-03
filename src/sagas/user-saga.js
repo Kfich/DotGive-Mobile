@@ -1,29 +1,43 @@
 import { take, call, put, race, all, select } from 'redux-saga/effects';
 import { delay } from 'redux-saga';
 import axios from 'axios';
-import { SET_CURRENT_USER,  } from '../actions';
-import Services from '../api';
 
-const fetchCurrentUser = () => {
-  var auth = {
-    email: 'stan@azula.co',
-    password: 'azulaazula'
+import {
+    SET_CURRENT_USER,
+} from '../actions';
+
+export const testOutput = (user) =>{
+
+  user = {
+    name: 'kevin',
+    userId: 123
   }
+  console.log("The user on testOutput ", user);
+  return user;
+}
+
+export const fetchCurrentUser = (params) => {
+  // Set url
   var baseURL = 'http://staging.api.dotgive.io/v1/authenticate';
-  console.log("The data on sendData Service ", auth);
-  axios.post(baseURL, auth)
+  console.log("The data on sendData Service ", baseURL, params);
+  // Post to endpoint
+  axios.post(baseURL, params)
   .then(res =>{
+    console.log("The response on fetchCurrentUser \n\n", res.data);
     return res.data;
   })
   .catch(err => console.log(err))
 }
 
-export function* getCurrentUser() {
+
+/**
+ * Current User retrieval
+ */
+export const getCurrentUser = function* getCurrentUser(action) {
   try {
-    yield take(SET_CURRENT_USER);
-    const currentUser = yield call(fetchCurrentUser); //1
-    yield put({type: 'CURRENT_USER_LOADED', currentUser}); //2
-  } catch(error) {
-    yield put({type: 'CURRENT_USER_LOADED_FAILED', error});
+    const user =  yield call(fetchCurrentUser, action.payload);
+    yield put({type: "SET_USER_SUCCEEDED", user: user});
+  } catch (e) {
+   yield put({type: "SET_USER_FAILED", message: e.message});
   }
 }
